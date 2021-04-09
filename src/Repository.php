@@ -62,6 +62,16 @@ class Repository
     /**
      * @param mixed $query
      *
+     * @return \Pagerfanta\Pagerfanta
+     */
+    public function findScrollPaginated($query, $options = [])
+    {
+        return $this->finder->findScrollPaginated($query, $options);
+    }
+
+    /**
+     * @param mixed $query
+     *
      * @return Paginator\PaginatorAdapterInterface
      */
     public function createPaginatorAdapter($query, array $options = [])
@@ -77,5 +87,16 @@ class Repository
     public function createHybridPaginatorAdapter($query, array $options = [])
     {
         return $this->finder->createHybridPaginatorAdapter($query, $options);
+    }
+
+    /**
+     * @param mixed $query
+     * @param array $options
+     *
+     * @return Paginator\PaginatorAdapterInterface
+     */
+    public function createScrollPaginatorAdapter($query, $options = [])
+    {
+        return $this->finder->createScrollPaginatorAdapter($query, $options);
     }
 }
